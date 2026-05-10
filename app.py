@@ -238,8 +238,9 @@ for i, (idx, row) in enumerate(fdf.iterrows()):
             w = x1 - x0
             if w < 0.005:
                 continue
-            # Skip unrealistically long awake segments (> 60 min = 1h)
-            if stage == 'awake' and w > 1.0:
+            # Skip unrealistically long segments
+            MAX_W = {'deep': 2.0, 'light': 2.0, 'rem': 2.0, 'awake': 0.5}
+            if w > MAX_W.get(stage, 2.0):
                 continue
             yp = row_base + STAGE_Y[stage]
 
