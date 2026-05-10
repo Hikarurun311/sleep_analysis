@@ -238,6 +238,9 @@ for i, (idx, row) in enumerate(fdf.iterrows()):
             w = x1 - x0
             if w < 0.005:
                 continue
+            # Skip unrealistically long awake segments (> 60 min = 1h)
+            if stage == 'awake' and w > 1.0:
+                continue
             yp = row_base + STAGE_Y[stage]
 
             shapes.append(dict(
