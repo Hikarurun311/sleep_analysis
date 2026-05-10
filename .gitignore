@@ -1,0 +1,23 @@
+# 仮想環境
+.venv/
+
+# Apple Health の生データ（巨大＆個人情報）
+export.xml
+export_cda.xml
+apple_health_export/
+
+# 不要なスクリプト
+extract_sleep.py
+parse_health.py
+sleep_timeline.py
+sleep_visualization.py
+
+# 生成済み画像
+sleep_timeline.png
+sleep_calendar_pies.png
+
+# その他
+.claude/
+__pycache__/
+*.pyc
+.DS_Store
